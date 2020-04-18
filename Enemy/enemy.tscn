@@ -15,6 +15,8 @@ radius = 88.5639
 
 [node name="enemy" type="KinematicBody2D"]
 script = ExtResource( 2 )
+speed = 50
+wander_speed = 30
 
 [node name="graphics" type="Sprite" parent="."]
 position = Vector2( 0, -10 )
@@ -28,14 +30,14 @@ shape = SubResource( 1 )
 
 [node name="vision" type="Area2D" parent="."]
 collision_layer = 64
-collision_mask = 130
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="vision"]
 shape = SubResource( 2 )
 
 [node name="hurtbox" type="Area2D" parent="."]
 collision_layer = 32
-collision_mask = 130
+collision_mask = 134
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
 shape = SubResource( 3 )
@@ -45,6 +47,10 @@ shape = SubResource( 3 )
 [node name="chase" type="Timer" parent="."]
 
 [node name="wander" type="Timer" parent="."]
+
+[node name="Tween" type="Tween" parent="."]
+[connection signal="area_shape_entered" from="vision" to="." method="_on_vision_area_shape_entered"]
+[connection signal="area_shape_exited" from="vision" to="." method="_on_vision_area_shape_exited"]
 [connection signal="body_entered" from="vision" to="." method="_on_vision_body_entered"]
 [connection signal="body_exited" from="vision" to="." method="_on_vision_body_exited"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
