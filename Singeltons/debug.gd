@@ -1,6 +1,6 @@
 extends Node
 
-onready var db_bg = get_tree().current_scene.get_node("ui/bg")
+onready var db_bg = get_tree().current_scene.get_node("canvas/ui/bg")
 onready var db_label = db_bg.get_node("debug")
 
 func _ready() -> void:

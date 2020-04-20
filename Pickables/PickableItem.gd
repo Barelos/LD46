@@ -1,7 +1,7 @@
 extends Area2D
 class_name Pickable
 
-export var action_name := "pick up"
+export var action_name := "test"
 export var icon: StreamTexture
 export var item_name := "wood"
 
@@ -13,13 +13,14 @@ signal player_done
 signal player_want_to_pick
 
 func _ready() -> void:
-	connect("player_hover", db, "show_debug", [action_name])
+#	connect("player_hover", db, "show_debug", [action_name])
 	connect("player_done", db, "hide_debug")
 	connect("player_want_to_pick", get_tree().current_scene.get_node("world/player"), "pick_item")
 	timer.connect("timeout", self, "queue_free")
 
 func _on_PickableItem_mouse_entered() -> void:
 	if _is_player_in_range():
+		db.show_debug(action_name)
 		emit_signal("player_hover")
 
 func _on_PickableItem_mouse_exited() -> void:

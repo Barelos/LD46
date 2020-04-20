@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/fall2.wav-9a00075ce85601a03bd6bb7892e6338c.sample"
+
+[deps]
+
+source_file="res://Assets/sound/fall2.wav"
+dest_files=[ "res://.import/fall2.wav-9a00075ce85601a03bd6bb7892e6338c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

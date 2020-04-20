@@ -2,6 +2,10 @@ extends Control
 
 var item_slot := preload("res://ui/slotItem.tscn")
 
+func reset_slots() -> void:
+	for child in $layout.get_children():
+		child.queue_free()
+
 func add_slot() -> void:
 	$layout.add_child(item_slot.instance())
 

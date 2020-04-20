@@ -1,18 +1,26 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Fire/Fire.png" type="Texture" id=1]
+[ext_resource path="res://Fire/Bonefire.png" type="Texture" id=1]
 [ext_resource path="res://Fire/fire.gd" type="Script" id=2]
+[ext_resource path="res://Fire/light.png" type="Texture" id=3]
+[ext_resource path="res://Assets/child.png" type="Texture" id=4]
+[ext_resource path="res://Fire/interactionRange.gd" type="Script" id=5]
+
+[sub_resource type="OccluderPolygon2D" id=5]
+polygon = PoolVector2Array( -38.8881, -33.7593, -21.3271, -15.7802, 8.77752, -15.3621, 35.9553, -24.9788, 45.9901, -48.3935, 43.0633, -83.0974, 32.1922, -107.348, -2.09358, -108.185, -18.4002, -106.094, -17.9821, -82.6793, -12.1284, -54.2472, -20.0727, -48.8116, -29.2713, -58.4284, -40.9787, -51.7385 )
 
 [sub_resource type="CapsuleShape2D" id=1]
+radius = 46.9344
+height = 91.6255
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 300.0
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 21.8463
+radius = 75.5644
 
 [sub_resource type="CircleShape2D" id=4]
-radius = 88.7475
+radius = 106.785
 
 [node name="fire" type="StaticBody2D" groups=[
 "fire",
@@ -20,15 +28,30 @@ radius = 88.7475
 collision_layer = 129
 collision_mask = 2
 script = ExtResource( 2 )
+starting_wood = 5
+max_wood = 7
 wood_burning_rate = 0.05
 
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( -1.07545, -52.7158 )
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 4 )
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="Sprite2"]
+position = Vector2( 1.34432, 95.8948 )
+scale = Vector2( 1.25, 1.25 )
+occluder = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 43 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 
 [node name="collision" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 6 )
-rotation = 1.5708
+position = Vector2( 7, 2 )
 shape = SubResource( 1 )
 
 [node name="light" type="Area2D" parent="." groups=[
@@ -50,11 +73,22 @@ shape = SubResource( 3 )
 [node name="interactionRange" type="Area2D" parent="."]
 collision_layer = 16
 collision_mask = 2
+script = ExtResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="interactionRange"]
 shape = SubResource( 4 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 2.94037, 61.3773 )
+texture = ExtResource( 3 )
+color = Color( 0.643137, 0.533333, 0.101961, 1 )
+shadow_enabled = true
+
+[node name="audio" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, 43 )
 [connection signal="input_event" from="interactionArea" to="." method="_on_interactionArea_input_event"]
 [connection signal="mouse_entered" from="interactionArea" to="." method="_on_interactionArea_mouse_entered"]
 [connection signal="mouse_exited" from="interactionArea" to="." method="_on_interactionArea_mouse_exited"]
+[connection signal="body_entered" from="interactionRange" to="interactionRange" method="_on_interactionRange_body_entered"]

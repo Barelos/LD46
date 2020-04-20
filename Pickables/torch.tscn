@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Pickables/Torch.png" type="Texture" id=1]
+[ext_resource path="res://Pickables/PickableItem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player/PlayerRig.png" type="Texture" id=3]
+
+[node name="torch" instance=ExtResource( 2 )]
+action_name = "Torch - scare the monsters away, press Q"
+icon = ExtResource( 1 )
+item_name = "torch"
+
+[node name="graphic" parent="." index="0"]
+rotation = 0.623685
+scale = Vector2( 0.4, 0.4 )
+texture = ExtResource( 3 )
+region_enabled = true
+region_rect = Rect2( 609.716, 39.2774, 67.5256, 157.15 )

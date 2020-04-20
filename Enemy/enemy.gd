@@ -1,8 +1,6 @@
 extends KinematicBody2D
 
-export var idle_time := 2
-export var wander_time := 3
-export var chase_time := 2
+export var recovery_time := 1
 
 export var speed := 150
 export var accelaration := 20
@@ -11,97 +9,61 @@ export var wander_speed = 70
 export var light_push = 25
 var current_accelaration := Vector2()
 
-onready var idle_timer = $idle
-onready var chase_timer = $chase
-onready var wander_timer = $wander
+onready var rig_scaling = $enemyRig.scale.x
+onready var audio = $audio
+var cooldown = false
+
+onready var timer = $Timer
 onready var tween = $Tween
 
-enum {IDLE, WANDER, CHASE, ATTACK}
+enum {WANDER, CHASE, ATTACK, ESCAPE}
 var current_state = WANDER
 
-var attacking = false
+var recovering = false
 
 var target = null
 var angle := 0.0
+var go = false
 
 func _ready() -> void:
-	idle_timer.connect("timeout", self, "start_wander")
-	wander_timer.connect("timeout", self, "start_idle")
-	chase_timer.connect("timeout", self, "stop_chase")
-	start_wander()
+	timer.connect("timeout", self, "_recover_after_attack")
 
 func _process(delta: float) -> void:
-	match current_state:
-		IDLE:
-			idle(delta)
-		WANDER:
-			wander(delta)
-		CHASE:
-			chase(delta)
-		ATTACK:
-			attack(delta)
-
-func _on_hurtbox_body_entered(body: Node) -> void:
-	idle_timer.stop()
-	wander_timer.stop()
-	chase_timer.stop()
-	if target == null or not target.is_in_group("player"):
-		target = body
-	current_state = ATTACK
-
-func _on_hurtbox_body_exited(body: Node) -> void:
-	idle_timer.stop()
-	wander_timer.stop()
-	chase_timer.stop()
-	_on_vision_body_entered(body)
-
-func _on_vision_body_entered(body: Node) -> void:
-	idle_timer.stop()
-	wander_timer.stop()
-	chase_timer.stop()
-	# prioretize player
-	if target != null and target.is_in_group("player"):
+	if not go:
 		return
-	target = body
-	current_state = CHASE
-
-func _on_vision_body_exited(body: Node) -> void:
-	chase_timer.start(chase_time)
-
-func _on_vision_area_shape_entered(area_id: int, area: Area2D, area_shape: int, self_shape: int) -> void:
-	_on_vision_body_entered(area.get_parent())
-
-func _on_vision_area_shape_exited(area_id: int, area: Area2D, area_shape: int, self_shape: int) -> void:
-	_on_vision_body_exited(area.get_parent())
-
-func stop_chase() -> void:
-	idle_timer.stop()
-	wander_timer.stop()
-	chase_timer.stop()
-	var overlapping_b = $vision.get_overlapping_bodies()
-	var overlapping_a = $vision.get_overlapping_areas()
-	if  overlapping_b.size( )> 0:
-		target = overlapping_b[0]
-	elif  overlapping_a.size( )> 0:
-		target = overlapping_a[0].get_parent()
-	else:
-		target = null
-		start_idle()
-
-func start_wander() -> void:
-	idle_timer.stop()
-	wander_timer.stop()
-	chase_timer.stop()
-	current_state = WANDER
-	angle = rand_range(0, 2 * PI)
-	wander_timer.start(wander_time)
-
-func start_idle() -> void:
-	idle_timer.stop()
-	wander_timer.stop()
-	chase_timer.stop()
-	current_state = IDLE
-	idle_timer.start(idle_time)
+	if recovering:
+		return
+	# first escape the light
+	var light = $hitbox.get_closest_light_source()
+	if  light != null:
+		play_blinded()
+		_move((position - light.position).normalized() * speed)
+		return
+	# if can hit hit and pause
+	if $hitbox.can_hit_target(target):
+		attack(delta)
+	# work accordingly
+	match current_state:
+		WANDER:
+			if $playerVision.can_see_player():
+				target = $playerVision.player
+				current_state = CHASE
+				play_detection()
+			elif $lightVision.can_see_light():
+				target = $lightVision.light
+				current_state = CHASE
+				play_detection()
+			else:
+				wander(delta)
+		CHASE:
+			if $playerVision.can_see_player():
+				target = $playerVision.player
+				chase(delta)
+			elif $lightVision.can_see_light():
+				target = $lightVision.light
+				chase(delta)
+			else:
+				current_state = WANDER
 
 func wander(delta: float) -> void:
 	angle += rand_range(-PI/16.0, PI/16.0)
@@ -110,28 +72,52 @@ func wander(delta: float) -> void:
 	_move(current_accelaration)
 
 func idle(delta: float) -> void:
-	return
+	current_accelaration = current_accelaration.move_toward(Vector2.ZERO, accelaration * delta)
+	_move(current_accelaration)
 
 func attack(delta: float) -> void:
-	pass
+	recovering = true
+	# TODO add some effect
+	play_attack()
+	target.take_hit(1)
+	# start the recovery timer
+	$enemyRig/AnimationPlayer.play("attack")
+	timer.start(recovery_time)
 
 func chase(delta: float) -> void:
 	var force = (target.position - position).normalized()
 	current_accelaration = current_accelaration.move_toward(force*speed, accelaration)
-	current_accelaration = _light_push()
 	_move(current_accelaration)
 
-func _light_push():
-	var areas = $hurtbox.get_overlapping_areas()
-	for a in areas:
-		if a.is_in_group("light"):
-			var force = (position - a.position).normalized() * light_push
-			current_accelaration += force
-	return current_accelaration
-	
+func _recover_after_attack() -> void:
+	recovering = false
 
 #############################
 # MOVEMENT
 #############################
 func _move(velocity) -> void:
+	if current_accelaration != Vector2():
+		$enemyRig/AnimationPlayer.play("walk")
+		$enemyRig.scale.x = -rig_scaling if current_accelaration.x > 0 else rig_scaling
 	move_and_slide(velocity)
+
+func play_detection():
+	cooldown = false
+	audio.stream = preload("res://Assets/sound/z1.wav")
+	audio.play()
+
+func play_attack():
+	cooldown = false
+	audio.stream = preload("res://Assets/sound/attack1.wav")
+	audio.play()
+
+func play_blinded():
+	if cooldown:
+		return
+	cooldown = true
+	$audio/timer.start(5)
+	audio.stream = preload("res://Assets/sound/blinded2.wav")
+	audio.play()
+
+func _on_timer_timeout() -> void:
+	cooldown = false

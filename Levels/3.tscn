@@ -1,0 +1,483 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Levels/world.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Obstacles/oilDrum.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Obstacles/leakyPipe.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Obstacles/rocks.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/normalEnemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Obstacles/tiles1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Pickables/torch.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Pickables/wood1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Pickables/wood2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Obstacles/crate.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Obstacles/rubble.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Untitled_Artwork(4).png" type="Texture" id=12]
+
+[node name="world" instance=ExtResource( 1 )]
+time_limit = 45
+transition_title = "The bottom of the mountain"
+flavor_text = "We camped today at the bottom of a mountain. The place seemed great this eavning but as it starts to get dark I get the chills at the bottom of my back, the feeling when somone is watching you. Alice told me to stop being paranoid. I don't know how this girl can keep so positive after all that we've seen."
+transition_im = ExtResource( 12 )
+
+[node name="player" parent="." index="2"]
+position = Vector2( 364.279, 221.897 )
+
+[node name="fire" parent="." index="3"]
+min_radius = 60
+starting_wood = 5
+
+[node name="torch" parent="pickables" index="0" instance=ExtResource( 7 )]
+position = Vector2( 347.001, 302 )
+
+[node name="wood2" parent="pickables" index="1" instance=ExtResource( 9 )]
+position = Vector2( 191.001, 299 )
+
+[node name="wood4" parent="pickables" index="2" instance=ExtResource( 8 )]
+position = Vector2( 373.738, 689.686 )
+
+[node name="wood6" parent="pickables" index="3" instance=ExtResource( 8 )]
+position = Vector2( 1098.79, 442.968 )
+
+[node name="wood8" parent="pickables" index="4" instance=ExtResource( 8 )]
+position = Vector2( 640.597, -287.118 )
+
+[node name="wood10" parent="pickables" index="5" instance=ExtResource( 8 )]
+position = Vector2( -69.3485, -161.241 )
+
+[node name="wood12" parent="pickables" index="6" instance=ExtResource( 8 )]
+position = Vector2( -49.2082, 513.459 )
+
+[node name="wood14" parent="pickables" index="7" instance=ExtResource( 9 )]
+position = Vector2( -438.879, 534.805 )
+
+[node name="wood16" parent="pickables" index="8" instance=ExtResource( 9 )]
+position = Vector2( -53.6958, -557.807 )
+
+[node name="wood18" parent="pickables" index="9" instance=ExtResource( 9 )]
+position = Vector2( 1403.96, -580.464 )
+
+[node name="wood20" parent="pickables" index="10" instance=ExtResource( 9 )]
+position = Vector2( 1769, 570.05 )
+
+[node name="wood22" parent="pickables" index="11" instance=ExtResource( 9 )]
+position = Vector2( 1358.64, 1091.18 )
+rotation = 2.96142
+
+[node name="torch2" parent="pickables" index="12" instance=ExtResource( 7 )]
+position = Vector2( 1378.78, 849.497 )
+
+[node name="torch3" parent="pickables" index="13" instance=ExtResource( 7 )]
+position = Vector2( -552.168, -396.684 )
+
+[node name="wood24" parent="pickables" index="14" instance=ExtResource( 9 )]
+position = Vector2( -854.864, 1041.64 )
+
+[node name="wood26" parent="pickables" index="15" instance=ExtResource( 9 )]
+position = Vector2( 927.949, 1954.07 )
+
+[node name="wood28" parent="pickables" index="16" instance=ExtResource( 9 )]
+position = Vector2( 2525.75, -81.0297 )
+
+[node name="wood30" parent="pickables" index="17" instance=ExtResource( 9 )]
+position = Vector2( 566.341, -266.039 )
+
+[node name="wood32" parent="pickables" index="18" instance=ExtResource( 8 )]
+position = Vector2( -1203.86, 1811.11 )
+
+[node name="wood34" parent="pickables" index="19" instance=ExtResource( 8 )]
+position = Vector2( -779.178, -253.424 )
+
+[node name="wood36" parent="pickables" index="20" instance=ExtResource( 8 )]
+position = Vector2( 2092.66, -425.819 )
+
+[node name="rocks" parent="obstacles" index="0" instance=ExtResource( 4 )]
+position = Vector2( 263.919, -929.799 )
+
+[node name="rocks2" parent="obstacles" index="1" instance=ExtResource( 4 )]
+position = Vector2( 400.244, -934.343 )
+
+[node name="rocks3" parent="obstacles" index="2" instance=ExtResource( 4 )]
+position = Vector2( 309.361, -984.329 )
+
+[node name="rocks4" parent="obstacles" index="3" instance=ExtResource( 4 )]
+position = Vector2( 457.046, -988.873 )
+
+[node name="rubble" parent="obstacles" index="4" instance=ExtResource( 11 )]
+position = Vector2( 657.527, -982.947 )
+
+[node name="rubble2" parent="obstacles" index="5" instance=ExtResource( 11 )]
+position = Vector2( 563.843, -955.578 )
+
+[node name="rubble3" parent="obstacles" index="6" instance=ExtResource( 11 )]
+position = Vector2( 654.37, -937.684 )
+
+[node name="rubble4" parent="obstacles" index="7" instance=ExtResource( 11 )]
+position = Vector2( 654.37, -937.684 )
+
+[node name="oilDrum" parent="obstacles" index="8" instance=ExtResource( 2 )]
+position = Vector2( 583.529, -905.052 )
+
+[node name="oilDrum2" parent="obstacles" index="9" instance=ExtResource( 2 )]
+position = Vector2( 538.58, -914.526 )
+
+[node name="oilDrum3" parent="obstacles" index="10" instance=ExtResource( 2 )]
+position = Vector2( 515.337, -864.32 )
+
+[node name="oilDrum4" parent="obstacles" index="11" instance=ExtResource( 2 )]
+position = Vector2( 484.013, -915.963 )
+
+[node name="oilDrum5" parent="obstacles" index="12" instance=ExtResource( 2 )]
+position = Vector2( 632.104, -889.531 )
+
+[node name="rocks8" parent="obstacles" index="13" instance=ExtResource( 4 )]
+position = Vector2( 142.785, 1968.1 )
+
+[node name="rocks7" parent="obstacles" index="14" instance=ExtResource( 4 )]
+position = Vector2( 279.11, 1963.55 )
+
+[node name="rocks6" parent="obstacles" index="15" instance=ExtResource( 4 )]
+position = Vector2( 188.227, 1913.57 )
+
+[node name="rocks5" parent="obstacles" index="16" instance=ExtResource( 4 )]
+position = Vector2( 335.912, 1909.02 )
+
+[node name="rubble8" parent="obstacles" index="17" instance=ExtResource( 11 )]
+position = Vector2( 536.393, 1914.95 )
+
+[node name="rubble7" parent="obstacles" index="18" instance=ExtResource( 11 )]
+position = Vector2( 442.709, 1942.32 )
+
+[node name="rubble6" parent="obstacles" index="19" instance=ExtResource( 11 )]
+position = Vector2( 533.236, 1960.21 )
+
+[node name="rubble5" parent="obstacles" index="20" instance=ExtResource( 11 )]
+position = Vector2( 533.236, 1960.21 )
+
+[node name="oilDrum18" parent="obstacles" index="21" instance=ExtResource( 2 )]
+position = Vector2( 462.395, 1992.85 )
+
+[node name="oilDrum17" parent="obstacles" index="22" instance=ExtResource( 2 )]
+position = Vector2( 417.446, 1983.37 )
+
+[node name="oilDrum16" parent="obstacles" index="23" instance=ExtResource( 2 )]
+position = Vector2( 394.203, 2033.58 )
+
+[node name="oilDrum15" parent="obstacles" index="24" instance=ExtResource( 2 )]
+position = Vector2( 362.879, 1981.93 )
+
+[node name="oilDrum14" parent="obstacles" index="25" instance=ExtResource( 2 )]
+position = Vector2( 510.97, 2008.37 )
+
+[node name="rocks12" parent="obstacles" index="26" instance=ExtResource( 4 )]
+position = Vector2( -476.862, 1315.84 )
+
+[node name="rocks11" parent="obstacles" index="27" instance=ExtResource( 4 )]
+position = Vector2( -340.537, 1311.29 )
+
+[node name="rocks10" parent="obstacles" index="28" instance=ExtResource( 4 )]
+position = Vector2( -431.42, 1261.31 )
+
+[node name="rocks9" parent="obstacles" index="29" instance=ExtResource( 4 )]
+position = Vector2( -283.735, 1256.76 )
+
+[node name="rubble12" parent="obstacles" index="30" instance=ExtResource( 11 )]
+position = Vector2( -83.2535, 1262.69 )
+
+[node name="rubble11" parent="obstacles" index="31" instance=ExtResource( 11 )]
+position = Vector2( -176.938, 1290.06 )
+
+[node name="rubble10" parent="obstacles" index="32" instance=ExtResource( 11 )]
+position = Vector2( -86.4114, 1307.95 )
+
+[node name="rubble9" parent="obstacles" index="33" instance=ExtResource( 11 )]
+position = Vector2( -86.4114, 1307.95 )
+
+[node name="oilDrum23" parent="obstacles" index="34" instance=ExtResource( 2 )]
+position = Vector2( -157.252, 1340.59 )
+
+[node name="oilDrum22" parent="obstacles" index="35" instance=ExtResource( 2 )]
+position = Vector2( -202.201, 1331.11 )
+
+[node name="oilDrum21" parent="obstacles" index="36" instance=ExtResource( 2 )]
+position = Vector2( -225.444, 1381.32 )
+
+[node name="oilDrum20" parent="obstacles" index="37" instance=ExtResource( 2 )]
+position = Vector2( -256.768, 1329.67 )
+
+[node name="oilDrum19" parent="obstacles" index="38" instance=ExtResource( 2 )]
+position = Vector2( -108.677, 1356.11 )
+
+[node name="rocks16" parent="obstacles" index="39" instance=ExtResource( 4 )]
+position = Vector2( 2667.96, 174.384 )
+
+[node name="rocks15" parent="obstacles" index="40" instance=ExtResource( 4 )]
+position = Vector2( 2804.29, 169.84 )
+
+[node name="rocks14" parent="obstacles" index="41" instance=ExtResource( 4 )]
+position = Vector2( 2713.41, 119.854 )
+
+[node name="rocks13" parent="obstacles" index="42" instance=ExtResource( 4 )]
+position = Vector2( 2861.09, 115.31 )
+
+[node name="rubble16" parent="obstacles" index="43" instance=ExtResource( 11 )]
+position = Vector2( 3061.57, 121.236 )
+
+[node name="rubble15" parent="obstacles" index="44" instance=ExtResource( 11 )]
+position = Vector2( 2967.89, 148.605 )
+
+[node name="rubble14" parent="obstacles" index="45" instance=ExtResource( 11 )]
+position = Vector2( 3058.41, 166.499 )
+
+[node name="rubble13" parent="obstacles" index="46" instance=ExtResource( 11 )]
+position = Vector2( 3058.41, 166.499 )
+
+[node name="oilDrum28" parent="obstacles" index="47" instance=ExtResource( 2 )]
+position = Vector2( 2987.57, 199.131 )
+
+[node name="oilDrum27" parent="obstacles" index="48" instance=ExtResource( 2 )]
+position = Vector2( 2942.62, 189.657 )
+
+[node name="oilDrum26" parent="obstacles" index="49" instance=ExtResource( 2 )]
+position = Vector2( 2919.38, 239.863 )
+
+[node name="oilDrum25" parent="obstacles" index="50" instance=ExtResource( 2 )]
+position = Vector2( 2888.06, 188.22 )
+
+[node name="oilDrum24" parent="obstacles" index="51" instance=ExtResource( 2 )]
+position = Vector2( 3036.15, 214.652 )
+
+[node name="leakyPipe" parent="obstacles" index="52" instance=ExtResource( 3 )]
+position = Vector2( 1798.76, -714.284 )
+scale = Vector2( 1.5, 1.5 )
+
+[node name="crate" parent="obstacles" index="53" instance=ExtResource( 10 )]
+position = Vector2( 1865.73, -653.905 )
+
+[node name="crate2" parent="obstacles" index="54" instance=ExtResource( 10 )]
+position = Vector2( 1834.71, -684.93 )
+
+[node name="crate3" parent="obstacles" index="55" instance=ExtResource( 10 )]
+position = Vector2( 1810.33, -650.58 )
+
+[node name="crate4" parent="obstacles" index="56" instance=ExtResource( 10 )]
+position = Vector2( 2060.74, -832.298 )
+
+[node name="crate5" parent="obstacles" index="57" instance=ExtResource( 10 )]
+position = Vector2( 2117.25, -815.678 )
+
+[node name="crate6" parent="obstacles" index="58" instance=ExtResource( 10 )]
+position = Vector2( 2019.75, -811.246 )
+
+[node name="crate7" parent="obstacles" index="59" instance=ExtResource( 10 )]
+position = Vector2( 2074.04, -793.517 )
+
+[node name="crate8" parent="obstacles" index="60" instance=ExtResource( 10 )]
+position = Vector2( 2069.61, -858.891 )
+z_index = 2
+
+[node name="oilDrum6" parent="obstacles" index="61" instance=ExtResource( 2 )]
+position = Vector2( 2163.79, -809.03 )
+
+[node name="oilDrum7" parent="obstacles" index="62" instance=ExtResource( 2 )]
+position = Vector2( 2130.55, -783.545 )
+
+[node name="tiles1" parent="obstacles" index="63" instance=ExtResource( 6 )]
+position = Vector2( 1990.94, -778.005 )
+
+[node name="tiles2" parent="obstacles" index="64" instance=ExtResource( 6 )]
+position = Vector2( 2033.04, -766.924 )
+
+[node name="tiles3" parent="obstacles" index="65" instance=ExtResource( 6 )]
+position = Vector2( 2069.61, -748.088 )
+
+[node name="crate13" parent="obstacles" index="66" instance=ExtResource( 10 )]
+position = Vector2( -493.295, -676.128 )
+
+[node name="crate12" parent="obstacles" index="67" instance=ExtResource( 10 )]
+position = Vector2( -436.785, -659.507 )
+
+[node name="crate11" parent="obstacles" index="68" instance=ExtResource( 10 )]
+position = Vector2( -534.292, -655.075 )
+
+[node name="crate10" parent="obstacles" index="69" instance=ExtResource( 10 )]
+position = Vector2( -479.999, -637.346 )
+
+[node name="crate9" parent="obstacles" index="70" instance=ExtResource( 10 )]
+position = Vector2( -484.431, -702.721 )
+z_index = 2
+
+[node name="oilDrum9" parent="obstacles" index="71" instance=ExtResource( 2 )]
+position = Vector2( -390.248, -652.859 )
+
+[node name="oilDrum8" parent="obstacles" index="72" instance=ExtResource( 2 )]
+position = Vector2( -423.489, -627.374 )
+
+[node name="tiles6" parent="obstacles" index="73" instance=ExtResource( 6 )]
+position = Vector2( -563.101, -621.834 )
+
+[node name="tiles5" parent="obstacles" index="74" instance=ExtResource( 6 )]
+position = Vector2( -520.996, -610.754 )
+
+[node name="tiles4" parent="obstacles" index="75" instance=ExtResource( 6 )]
+position = Vector2( -484.431, -591.917 )
+
+[node name="crate18" parent="obstacles" index="76" instance=ExtResource( 10 )]
+position = Vector2( -866.015, 777.48 )
+
+[node name="crate17" parent="obstacles" index="77" instance=ExtResource( 10 )]
+position = Vector2( -809.505, 794.101 )
+
+[node name="crate16" parent="obstacles" index="78" instance=ExtResource( 10 )]
+position = Vector2( -907.012, 798.533 )
+
+[node name="crate15" parent="obstacles" index="79" instance=ExtResource( 10 )]
+position = Vector2( -852.719, 816.262 )
+
+[node name="crate14" parent="obstacles" index="80" instance=ExtResource( 10 )]
+position = Vector2( -857.151, 750.887 )
+z_index = 2
+
+[node name="oilDrum11" parent="obstacles" index="81" instance=ExtResource( 2 )]
+position = Vector2( -762.968, 800.749 )
+
+[node name="oilDrum10" parent="obstacles" index="82" instance=ExtResource( 2 )]
+position = Vector2( -796.209, 826.234 )
+
+[node name="tiles9" parent="obstacles" index="83" instance=ExtResource( 6 )]
+position = Vector2( -935.821, 831.774 )
+
+[node name="tiles8" parent="obstacles" index="84" instance=ExtResource( 6 )]
+position = Vector2( -893.716, 842.854 )
+
+[node name="tiles7" parent="obstacles" index="85" instance=ExtResource( 6 )]
+position = Vector2( -857.151, 861.691 )
+
+[node name="crate23" parent="obstacles" index="86" instance=ExtResource( 10 )]
+position = Vector2( 2073.81, 1154.86 )
+
+[node name="crate22" parent="obstacles" index="87" instance=ExtResource( 10 )]
+position = Vector2( 2130.32, 1171.48 )
+
+[node name="crate21" parent="obstacles" index="88" instance=ExtResource( 10 )]
+position = Vector2( 2032.82, 1175.91 )
+
+[node name="crate20" parent="obstacles" index="89" instance=ExtResource( 10 )]
+position = Vector2( 2087.11, 1193.64 )
+
+[node name="crate19" parent="obstacles" index="90" instance=ExtResource( 10 )]
+position = Vector2( 2082.68, 1128.27 )
+z_index = 2
+
+[node name="oilDrum13" parent="obstacles" index="91" instance=ExtResource( 2 )]
+position = Vector2( 2176.86, 1178.13 )
+
+[node name="oilDrum12" parent="obstacles" index="92" instance=ExtResource( 2 )]
+position = Vector2( 2143.62, 1203.61 )
+
+[node name="tiles12" parent="obstacles" index="93" instance=ExtResource( 6 )]
+position = Vector2( 2004.01, 1209.15 )
+
+[node name="tiles11" parent="obstacles" index="94" instance=ExtResource( 6 )]
+position = Vector2( 2046.11, 1220.23 )
+
+[node name="tiles10" parent="obstacles" index="95" instance=ExtResource( 6 )]
+position = Vector2( 2082.68, 1239.07 )
+
+[node name="tiles13" parent="obstacles" index="96" instance=ExtResource( 6 )]
+position = Vector2( -813.549, 465.023 )
+
+[node name="tiles14" parent="obstacles" index="97" instance=ExtResource( 6 )]
+position = Vector2( -697.074, 325.253 )
+
+[node name="tiles15" parent="obstacles" index="98" instance=ExtResource( 6 )]
+position = Vector2( -240.492, -159.283 )
+
+[node name="tiles16" parent="obstacles" index="99" instance=ExtResource( 6 )]
+position = Vector2( 742.557, -219.85 )
+
+[node name="tiles17" parent="obstacles" index="100" instance=ExtResource( 6 )]
+position = Vector2( 1562.54, 274.004 )
+
+[node name="tiles18" parent="obstacles" index="101" instance=ExtResource( 6 )]
+position = Vector2( 1194.48, 884.333 )
+
+[node name="tiles19" parent="obstacles" index="102" instance=ExtResource( 6 )]
+position = Vector2( 742.557, 1182.51 )
+
+[node name="oilDrum29" parent="obstacles" index="103" instance=ExtResource( 2 )]
+position = Vector2( -520.032, 162.188 )
+
+[node name="oilDrum30" parent="obstacles" index="104" instance=ExtResource( 2 )]
+position = Vector2( 1446.07, 92.3027 )
+
+[node name="oilDrum31" parent="obstacles" index="105" instance=ExtResource( 2 )]
+position = Vector2( 1236.41, 1494.66 )
+
+[node name="oilDrum32" parent="obstacles" index="106" instance=ExtResource( 2 )]
+position = Vector2( 216.09, 1163.87 )
+
+[node name="normalEnemy" parent="enemies" index="0" instance=ExtResource( 5 )]
+position = Vector2( -259.128, 674.678 )
+
+[node name="normalEnemy2" parent="enemies" index="1" instance=ExtResource( 5 )]
+position = Vector2( 654.036, 777.176 )
+
+[node name="normalEnemy3" parent="enemies" index="2" instance=ExtResource( 5 )]
+position = Vector2( 1157.21, 208.778 )
+
+[node name="normalEnemy4" parent="enemies" index="3" instance=ExtResource( 5 )]
+position = Vector2( 742.557, -336.325 )
+
+[node name="normalEnemy5" parent="enemies" index="4" instance=ExtResource( 5 )]
+position = Vector2( 80.979, -294.394 )
+
+[node name="normalEnemy6" parent="enemies" index="5" instance=ExtResource( 5 )]
+position = Vector2( -403.557, 13.0997 )
+
+[node name="normalEnemy7" parent="enemies" index="6" instance=ExtResource( 5 )]
+position = Vector2( -1051.16, 59.6897 )
+
+[node name="normalEnemy8" parent="enemies" index="7" instance=ExtResource( 5 )]
+position = Vector2( -864.798, 1336.26 )
+
+[node name="normalEnemy9" parent="enemies" index="8" instance=ExtResource( 5 )]
+position = Vector2( 407.109, 1620.45 )
+
+[node name="normalEnemy10" parent="enemies" index="9" instance=ExtResource( 5 )]
+position = Vector2( 1674.36, 870.356 )
+
+[node name="normalEnemy11" parent="enemies" index="10" instance=ExtResource( 5 )]
+position = Vector2( 1893.33, 148.211 )
+
+[node name="normalEnemy12" parent="enemies" index="11" instance=ExtResource( 5 )]
+position = Vector2( 1511.29, -462.118 )
+
+[node name="normalEnemy13" parent="enemies" index="12" instance=ExtResource( 5 )]
+position = Vector2( 942.894, -858.133 )
+
+[node name="normalEnemy14" parent="enemies" index="13" instance=ExtResource( 5 )]
+position = Vector2( 216.09, -844.156 )
+
+[node name="normalEnemy15" parent="enemies" index="14" instance=ExtResource( 5 )]
+position = Vector2( -636.507, -718.363 )
+
+[node name="normalEnemy16" parent="enemies" index="15" instance=ExtResource( 5 )]
+position = Vector2( -1712.74, 609.452 )
+
+[node name="normalEnemy17" parent="enemies" index="16" instance=ExtResource( 5 )]
+position = Vector2( -594.576, 2039.76 )
+
+[node name="normalEnemy18" parent="enemies" index="17" instance=ExtResource( 5 )]
+position = Vector2( 1352.89, 1862.72 )
+
+[node name="normalEnemy19" parent="enemies" index="18" instance=ExtResource( 5 )]
+position = Vector2( 2242.76, 1014.78 )
+
+[node name="normalEnemy20" parent="enemies" index="19" instance=ExtResource( 5 )]
+position = Vector2( 2522.3, 506.954 )
+
+[node name="normalEnemy21" parent="enemies" index="20" instance=ExtResource( 5 )]
+position = Vector2( 2592.18, -434.164 )
+
+[node name="normalEnemy22" parent="enemies" index="21" instance=ExtResource( 5 )]
+position = Vector2( 1888.67, -1202.9 )

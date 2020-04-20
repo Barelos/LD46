@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/firelit.wav-8a1081fb0edd0286719074bf240e3e69.sample"
+
+[deps]
+
+source_file="res://Assets/sound/firelit.wav"
+dest_files=[ "res://.import/firelit.wav-8a1081fb0edd0286719074bf240e3e69.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

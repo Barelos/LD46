@@ -1,16 +1,44 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Singeltons/main.gd" type="Script" id=1]
-[ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Fire/fire.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/world.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/inventory.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Pickables/PickableItem.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemy/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/transition.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/victoryScreen.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/mainUI.tscn" type="PackedScene" id=7]
+[ext_resource path="res://ui/mainMenu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Untitled_Artwork.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Untitled_Artwork(5).png" type="Texture" id=10]
+[ext_resource path="res://Levels/2.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/3.tscn" type="PackedScene" id=12]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/fonts/raw/Lato-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 15
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = SubResource( 1 )
 
 [node name="main" type="Node"]
 script = ExtResource( 1 )
+levels = [ ExtResource( 3 ), ExtResource( 11 ), ExtResource( 12 ) ]
+victory_title = "New home new life"
+victory_text = "There are so many people here it's gonna take me some time to readjast.
+Alice even found a girl her own age to play with today.
+We made it, we can continoue our lives here."
+victory_im = ExtResource( 10 )
+loose_title = "The fire is out"
+loose_text = "I pick my head up for the last time. The ambers in the fire pit are turning gray and the world is turning pitch black."
+loose_im = ExtResource( 9 )
 
-[node name="ui" type="Control" parent="."]
+[node name="world" parent="." instance=ExtResource( 2 )]
+
+[node name="canvas" type="CanvasLayer" parent="."]
+
+[node name="ui" type="Control" parent="canvas"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -19,22 +47,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="bg" type="Panel" parent="ui"]
-visible = false
+[node name="bg" type="Panel" parent="canvas/ui"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -45.0
+margin_left = -214.0
 margin_top = 5.0
-margin_right = 46.0
-margin_bottom = 28.0
+margin_right = 214.0
+margin_bottom = 44.0
 __meta__ = {
 "_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
-[node name="debug" type="Label" parent="ui/bg"]
+[node name="debug" type="Label" parent="canvas/ui/bg"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_fonts/font = SubResource( 2 )
 text = "DEBUG"
 align = 1
 valign = 1
@@ -42,7 +70,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="inventory" parent="ui" instance=ExtResource( 4 )]
+[node name="inventory" parent="canvas/ui" instance=ExtResource( 4 )]
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -50,34 +78,14 @@ anchor_bottom = 1.0
 margin_top = -98.4161
 margin_bottom = -18.4161
 
-[node name="world" type="YSort" parent="."]
+[node name="transition" parent="canvas" instance=ExtResource( 5 )]
+visible = false
+mouse_filter = 2
 
-[node name="player" parent="world" instance=ExtResource( 2 )]
-position = Vector2( 54.972, 544.092 )
-speed = 250
-accelaration = 50
+[node name="victoryScreen" parent="canvas" instance=ExtResource( 6 )]
+visible = false
 
-[node name="fire" parent="world" instance=ExtResource( 3 )]
-position = Vector2( 421.781, 244.691 )
+[node name="mainMenu" parent="canvas" instance=ExtResource( 8 )]
 
-[node name="pickables" type="YSort" parent="world"]
-
-[node name="PickableItem2" parent="world/pickables" instance=ExtResource( 5 )]
-position = Vector2( 880.162, 119.713 )
-
-[node name="PickableItem3" parent="world/pickables" instance=ExtResource( 5 )]
-position = Vector2( 910.09, 402.671 )
-
-[node name="PickableItem4" parent="world/pickables" instance=ExtResource( 5 )]
-position = Vector2( 178.209, 88.4243 )
-
-[node name="PickableItem5" parent="world/pickables" instance=ExtResource( 5 )]
-position = Vector2( 326.49, 515.582 )
-
-[node name="PickableItem" parent="world/pickables" instance=ExtResource( 5 )]
-position = Vector2( 159.164, 338.733 )
-
-[node name="obstacles" type="YSort" parent="world"]
-
-[node name="enemy" parent="world" instance=ExtResource( 6 )]
-position = Vector2( 821.19, 276.292 )
+[node name="mainUI" parent="canvas" instance=ExtResource( 7 )]
+visible = false

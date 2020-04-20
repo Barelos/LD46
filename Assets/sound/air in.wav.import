@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/air in.wav-ba2961e095b55e7161c21a8989e9aaac.sample"
+
+[deps]
+
+source_file="res://Assets/sound/air in.wav"
+dest_files=[ "res://.import/air in.wav-ba2961e095b55e7161c21a8989e9aaac.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

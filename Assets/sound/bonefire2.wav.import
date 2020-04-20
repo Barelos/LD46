@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/bonefire2.wav-2d7f5b2ffa83a9ed06a61eee90f75c40.sample"
+
+[deps]
+
+source_file="res://Assets/sound/bonefire2.wav"
+dest_files=[ "res://.import/bonefire2.wav-2d7f5b2ffa83a9ed06a61eee90f75c40.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

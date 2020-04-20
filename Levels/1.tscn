@@ -1,0 +1,247 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Levels/world.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Obstacles/oilDrum.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Obstacles/rubble.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Obstacles/leakyPipe.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Obstacles/rocks.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Obstacles/crate.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Obstacles/tiles1.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Pickables/wood2.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Enemy/normalEnemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Pickables/wood1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Pickables/torch.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Obstacles/tiles2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/day1.png" type="Texture" id=13]
+
+[node name="world" instance=ExtResource( 1 )]
+time_limit = 60
+transition_title = "A fresh start"
+flavor_text = "Ok honey one last time. We are leaving today to the farmlands up north.
+They said on the radio that they have a colony up there and that they take people in, apperently there are no monsters over there. Look I drew you this map so you would know where we are all the time. Remember they can't hurt you if you stay close to the fire, you stay here and i'll brnig fire wood. If you get scared talk to me on the wolki toki. "
+transition_im = ExtResource( 13 )
+
+[node name="bg" parent="." index="1"]
+position = Vector2( 458.742, 368.17 )
+z_index = -4
+
+[node name="player" parent="." index="2"]
+position = Vector2( 359.969, 257.189 )
+
+[node name="fire" parent="." index="3"]
+position = Vector2( 446.336, 331.279 )
+min_radius = 50
+starting_wood = 5
+
+[node name="wood1" parent="pickables" index="0" instance=ExtResource( 10 )]
+position = Vector2( 101.071, 1171.14 )
+
+[node name="wood2" parent="pickables" index="1" instance=ExtResource( 10 )]
+position = Vector2( 160.928, 1188.83 )
+
+[node name="wood3" parent="pickables" index="2" instance=ExtResource( 10 )]
+position = Vector2( 159.568, 1128.97 )
+
+[node name="wood4" parent="pickables" index="3" instance=ExtResource( 10 )]
+position = Vector2( 1168.97, 1067.75 )
+
+[node name="wood5" parent="pickables" index="4" instance=ExtResource( 10 )]
+position = Vector2( 1223.38, 1033.75 )
+
+[node name="wood6" parent="pickables" index="5" instance=ExtResource( 10 )]
+position = Vector2( 1219.3, 1084.08 )
+
+[node name="wood12" parent="pickables" index="6" instance=ExtResource( 10 )]
+position = Vector2( 654.782, -564.714 )
+
+[node name="wood13" parent="pickables" index="7" instance=ExtResource( 10 )]
+position = Vector2( 525.725, -562.007 )
+
+[node name="wood14" parent="pickables" index="8" instance=ExtResource( 10 )]
+position = Vector2( 244.144, -713.627 )
+
+[node name="wood15" parent="pickables" index="9" instance=ExtResource( 10 )]
+position = Vector2( 233.314, -465.439 )
+
+[node name="wood7" parent="pickables" index="10" instance=ExtResource( 8 )]
+position = Vector2( 1411.11, 285.538 )
+
+[node name="wood8" parent="pickables" index="11" instance=ExtResource( 8 )]
+position = Vector2( 1507.7, 346.755 )
+
+[node name="wood9" parent="pickables" index="12" instance=ExtResource( 8 )]
+position = Vector2( 1392.07, 372.602 )
+
+[node name="wood10" parent="pickables" index="13" instance=ExtResource( 8 )]
+position = Vector2( 1477.77, 73.319 )
+
+[node name="wood11" parent="pickables" index="14" instance=ExtResource( 8 )]
+position = Vector2( 1426.08, 69.2379 )
+
+[node name="wood16" parent="pickables" index="15" instance=ExtResource( 10 )]
+position = Vector2( -406.999, -454 )
+
+[node name="wood17" parent="pickables" index="16" instance=ExtResource( 10 )]
+position = Vector2( -420.999, -320.999 )
+
+[node name="wood18" parent="pickables" index="17" instance=ExtResource( 10 )]
+position = Vector2( -228.999, -458 )
+
+[node name="wood19" parent="pickables" index="18" instance=ExtResource( 8 )]
+position = Vector2( -305.999, -210.999 )
+
+[node name="wood20" parent="pickables" index="19" instance=ExtResource( 8 )]
+position = Vector2( -204.999, -190.999 )
+
+[node name="wood21" parent="pickables" index="20" instance=ExtResource( 8 )]
+position = Vector2( -60.9987, -220.999 )
+
+[node name="torch" parent="pickables" index="21" instance=ExtResource( 11 )]
+position = Vector2( 160.324, 324.816 )
+
+[node name="torch2" parent="pickables" index="22" instance=ExtResource( 11 )]
+position = Vector2( -272.567, -363.982 )
+
+[node name="torch3" parent="pickables" index="23" instance=ExtResource( 11 )]
+position = Vector2( 1301.15, 312.858 )
+
+[node name="torch4" parent="pickables" index="24" instance=ExtResource( 11 )]
+position = Vector2( -282.703, 1360.97 )
+
+[node name="rocks" parent="obstacles" index="0" instance=ExtResource( 5 )]
+position = Vector2( 803.916, 507.269 )
+
+[node name="rocks2" parent="obstacles" index="1" instance=ExtResource( 5 )]
+position = Vector2( 124.136, 486.591 )
+
+[node name="rocks3" parent="obstacles" index="2" instance=ExtResource( 5 )]
+position = Vector2( 741.883, 228.119 )
+
+[node name="rubble" parent="obstacles" index="3" instance=ExtResource( 3 )]
+position = Vector2( 135.455, 216.55 )
+
+[node name="rubble2" parent="obstacles" index="4" instance=ExtResource( 3 )]
+position = Vector2( 521.335, 863.2 )
+
+[node name="rubble3" parent="obstacles" index="5" instance=ExtResource( 3 )]
+position = Vector2( 1033.97, 377.22 )
+
+[node name="rubble4" parent="obstacles" index="6" instance=ExtResource( 3 )]
+position = Vector2( 945.799, 96.2944 )
+
+[node name="rubble5" parent="obstacles" index="7" instance=ExtResource( 3 )]
+position = Vector2( -276.329, 204.974 )
+
+[node name="rubble6" parent="obstacles" index="8" instance=ExtResource( 3 )]
+position = Vector2( -581.861, -131.317 )
+
+[node name="tiles1" parent="obstacles" index="9" instance=ExtResource( 7 )]
+position = Vector2( 372.216, -86.7386 )
+
+[node name="tiles2" parent="obstacles" index="10" instance=ExtResource( 7 )]
+position = Vector2( 688, 67.0527 )
+
+[node name="tiles3" parent="obstacles" index="11" instance=ExtResource( 7 )]
+position = Vector2( 938.167, 749.886 )
+
+[node name="tiles15" parent="obstacles" index="12" instance=ExtResource( 7 )]
+position = Vector2( 1121.89, -312.353 )
+
+[node name="tiles16" parent="obstacles" index="13" instance=ExtResource( 7 )]
+position = Vector2( 1026.6, -372.186 )
+
+[node name="tiles17" parent="obstacles" index="14" instance=ExtResource( 7 )]
+position = Vector2( 1142.94, -485.206 )
+
+[node name="tiles18" parent="obstacles" index="15" instance=ExtResource( 7 )]
+position = Vector2( 1229.37, -424.264 )
+
+[node name="tiles4" parent="obstacles" index="16" instance=ExtResource( 7 )]
+position = Vector2( 981.229, 1022.61 )
+
+[node name="tiles5" parent="obstacles" index="17" instance=ExtResource( 7 )]
+position = Vector2( 540.361, 1102.58 )
+
+[node name="tiles6" parent="obstacles" index="18" instance=ExtResource( 7 )]
+position = Vector2( 148.706, 938.536 )
+
+[node name="tiles7" parent="obstacles" index="19" instance=ExtResource( 7 )]
+position = Vector2( -253.202, 881.121 )
+
+[node name="tiles8" parent="obstacles" index="20" instance=ExtResource( 7 )]
+position = Vector2( 185.615, -201.57 )
+
+[node name="tiles9" parent="obstacles" index="21" instance=ExtResource( 12 )]
+position = Vector2( 1344.18, 265.956 )
+
+[node name="tiles10" parent="obstacles" index="22" instance=ExtResource( 12 )]
+position = Vector2( 1449.96, 329.092 )
+
+[node name="tiles11" parent="obstacles" index="23" instance=ExtResource( 12 )]
+position = Vector2( 1470.87, 273.9 )
+
+[node name="tiles12" parent="obstacles" index="24" instance=ExtResource( 12 )]
+position = Vector2( 1398.95, 200.729 )
+
+[node name="oilDrum" parent="obstacles" index="25" instance=ExtResource( 2 )]
+position = Vector2( 1340.74, 218.063 )
+
+[node name="oilDrum2" parent="obstacles" index="26" instance=ExtResource( 2 )]
+position = Vector2( 1371.68, 201.756 )
+
+[node name="crate" parent="obstacles" index="27" instance=ExtResource( 6 )]
+position = Vector2( 1531.4, 251.095 )
+
+[node name="crate2" parent="obstacles" index="28" instance=ExtResource( 6 )]
+position = Vector2( 1587.01, 261.548 )
+
+[node name="crate3" parent="obstacles" index="29" instance=ExtResource( 6 )]
+position = Vector2( 1524.3, 275.764 )
+
+[node name="leakyPipe" parent="obstacles" index="30" instance=ExtResource( 4 )]
+position = Vector2( -137.48, -345.213 )
+
+[node name="oilDrum3" parent="obstacles" index="31" instance=ExtResource( 2 )]
+position = Vector2( -172.028, -391.97 )
+
+[node name="oilDrum4" parent="obstacles" index="32" instance=ExtResource( 2 )]
+position = Vector2( -122.527, -393.264 )
+
+[node name="rubble7" parent="obstacles" index="33" instance=ExtResource( 3 )]
+position = Vector2( -41.6434, -332.764 )
+
+[node name="tiles13" parent="obstacles" index="34" instance=ExtResource( 7 )]
+position = Vector2( -167.175, -261.586 )
+
+[node name="tiles14" parent="obstacles" index="35" instance=ExtResource( 12 )]
+position = Vector2( -280.412, -302.028 )
+
+[node name="oilDrum5" parent="obstacles" index="36" instance=ExtResource( 2 )]
+position = Vector2( -287.996, 1236.44 )
+
+[node name="oilDrum6" parent="obstacles" index="37" instance=ExtResource( 2 )]
+position = Vector2( -258.068, 1265.01 )
+
+[node name="rubble8" parent="obstacles" index="38" instance=ExtResource( 3 )]
+position = Vector2( -205.013, 1251.41 )
+
+[node name="rocks" parent="obstacles/rubble8" index="3" instance=ExtResource( 5 )]
+position = Vector2( 19.0453, 42.1716 )
+
+[node name="normalEnemy" parent="enemies" index="0" instance=ExtResource( 9 )]
+position = Vector2( -389.759, 1009.99 )
+
+[node name="normalEnemy2" parent="enemies" index="1" instance=ExtResource( 9 )]
+position = Vector2( 1425.51, 1265.89 )
+
+[node name="normalEnemy3" parent="enemies" index="2" instance=ExtResource( 9 )]
+position = Vector2( 1348.98, -685.7 )
+
+[node name="normalEnemy4" parent="enemies" index="3" instance=ExtResource( 9 )]
+position = Vector2( 1659.89, 357.064 )
+
+[node name="normalEnemy5" parent="enemies" index="4" instance=ExtResource( 9 )]
+position = Vector2( -557.175, -610.323 )
+
+[node name="normalEnemy6" parent="enemies" index="5" instance=ExtResource( 9 )]
+position = Vector2( 232.89, -63.7993 )

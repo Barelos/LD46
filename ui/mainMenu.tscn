@@ -1,0 +1,239 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://ui/Instructions.gd" type="Script" id=1]
+[ext_resource path="res://ui/mainMenu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/view2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/fonts/lato.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/view.png" type="Texture" id=5]
+
+[sub_resource type="DynamicFontData" id=1]
+font_path = "res://Assets/fonts/raw/Lato-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+outline_size = 1
+outline_color = Color( 0.384314, 0.364706, 0.364706, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 1
+outline_color = Color( 0.384314, 0.364706, 0.364706, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFontData" id=6]
+font_path = "res://Assets/fonts/raw/Lato-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=7]
+size = 30
+outline_size = 1
+outline_color = Color( 0.384314, 0.364706, 0.364706, 1 )
+font_data = SubResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 30
+outline_size = 1
+outline_color = Color( 0.384314, 0.364706, 0.364706, 1 )
+font_data = SubResource( 1 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 40
+outline_size = 1
+outline_color = Color( 0.384314, 0.364706, 0.364706, 1 )
+font_data = SubResource( 1 )
+
+[node name="mainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = 61.0
+margin_top = -176.0
+margin_right = -62.0
+margin_bottom = -22.0
+custom_fonts/font = ExtResource( 4 )
+text = "Father"
+align = 1
+valign = 1
+
+[node name="layout" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -111.0
+margin_top = -24.654
+margin_right = 111.0
+margin_bottom = 153.346
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="newGame" type="Button" parent="layout"]
+margin_right = 222.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/font = SubResource( 2 )
+text = "New Game"
+
+[node name="instrucitons" type="Button" parent="layout"]
+margin_top = 60.0
+margin_right = 222.0
+margin_bottom = 110.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/font = SubResource( 2 )
+text = "Instructions"
+
+[node name="exit" type="Button" parent="layout"]
+margin_top = 120.0
+margin_right = 222.0
+margin_bottom = 170.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/font = SubResource( 2 )
+text = "Exit"
+
+[node name="Instructions" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="bg" type="Panel" parent="Instructions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="titel" type="Label" parent="Instructions/bg"]
+anchor_right = 1.0
+margin_left = 56.0
+margin_right = -57.0
+margin_bottom = 112.0
+custom_fonts/font = ExtResource( 4 )
+text = "Instructions:"
+valign = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Instructions"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_left = 35.0
+margin_top = -178.0
+margin_right = 602.0
+margin_bottom = 159.0
+custom_fonts/mono_font = ExtResource( 4 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "You are playing as a father and a doughter that are traveling through a disease ridden wastland full of monsters in hopes of finding a colony. Each night you park at a location and have to keep hordes of monsters from getting to you and your child. The only thing keeping you from being eaten alive is the light from the fire you are building each night. For some reason the light has such a strong effect on this creatures that they cant even come close to us as long as the fire is strong enough. burning, as long as the fire is burning we get to live another day. 
+
+Use WASD to move, left click to collect and place items and Q to light your torch."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="layout" type="VBoxContainer" parent="Instructions"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -406.0
+margin_top = -225.0
+margin_right = -29.0
+margin_bottom = 288.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_group_": true,
+"_edit_use_anchors_": false
+}
+
+[node name="imageWood" type="TextureRect" parent="Instructions/layout"]
+margin_top = 39.0
+margin_right = 377.0
+margin_bottom = 189.0
+rect_min_size = Vector2( 0, 150 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Label" type="Label" parent="Instructions/layout"]
+margin_top = 209.0
+margin_right = 377.0
+margin_bottom = 246.0
+custom_fonts/font = SubResource( 7 )
+text = "Collect wood"
+align = 1
+valign = 1
+
+[node name="imageWood2" type="TextureRect" parent="Instructions/layout"]
+margin_top = 266.0
+margin_right = 377.0
+margin_bottom = 416.0
+rect_min_size = Vector2( 0, 150 )
+texture = ExtResource( 5 )
+expand = true
+stretch_mode = 6
+
+[node name="Label2" type="Label" parent="Instructions/layout"]
+margin_top = 436.0
+margin_right = 377.0
+margin_bottom = 473.0
+custom_fonts/font = SubResource( 7 )
+text = "Place it in the fire"
+align = 1
+valign = 1
+
+[node name="buttons" type="HBoxContainer" parent="Instructions"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 12.0
+margin_top = -149.0
+margin_right = -338.0
+margin_bottom = -34.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="wasdLabel" type="Label" parent="Instructions/buttons"]
+margin_top = 39.0
+margin_right = 633.0
+margin_bottom = 76.0
+custom_fonts/font = SubResource( 4 )
+text = "WASD to move, Q to light torch, LMB to interact"
+
+[node name="back" type="Button" parent="Instructions"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -81.0
+margin_top = 12.0
+margin_right = -11.0
+margin_bottom = 82.0
+rect_min_size = Vector2( 70, 70 )
+custom_fonts/font = SubResource( 5 )
+text = "x"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="layout/newGame" to="." method="_on_newGame_pressed"]
+[connection signal="pressed" from="layout/instrucitons" to="." method="_on_instrucitons_pressed"]
+[connection signal="pressed" from="layout/exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="Instructions/back" to="Instructions" method="_on_back_pressed"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/happy3.wav-f5ac0c67b32937bb343d2480db4d4e84.sample"
+
+[deps]
+
+source_file="res://Assets/sound/happy3.wav"
+dest_files=[ "res://.import/happy3.wav-f5ac0c67b32937bb343d2480db4d4e84.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

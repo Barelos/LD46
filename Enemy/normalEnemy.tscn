@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Enemy/enemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemy/normalEnemyRig.tscn" type="PackedScene" id=2]
+
+[node name="normalEnemy" groups=[
+"enemy",
+] instance=ExtResource( 1 )]
+speed = 80
+accelaration = 40
+
+[node name="enemyRig" parent="." index="1" instance=ExtResource( 2 )]
+scale = Vector2( 0.4, 0.4 )
